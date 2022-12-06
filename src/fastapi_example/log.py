@@ -58,6 +58,7 @@ def init_log() -> None:
         },
         "loggers": {
             '': {'level': log_level, 'handlers': ['console']},
+            'aiosqlite': {'level': logging.WARNING, 'handlers': ['console']},
         }
     }
 

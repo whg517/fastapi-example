@@ -1,10 +1,15 @@
 """Command line"""
+import asyncio
+
 import click
+import uvicorn
 from click import Context
 
 from fastapi_example import __version__
 from fastapi_example.config import settings
 from fastapi_example.log import init_log
+from fastapi_example.server import Server
+from fastapi_sqlalcmemy.extension import db
 
 
 @click.group(invoke_without_command=True)
@@ -37,5 +42,8 @@ def main(ctx: Context, version: str, verbose: bool, debug: bool):
 @main.command()
 def run():
     """Run command"""
-    init_log()
-    click.echo('run......')
+    asyncio.run(Server().start())
+
+
+if __name__ == '__main__':
+    main()

@@ -2,3 +2,6 @@ verbose: false
 debug: false
 loglevel: warning
 logpath: /tmp/fastapi_example
+
+database: 'sqlite+aiosqlite:///db.sqlite'
+show_sql:  false
